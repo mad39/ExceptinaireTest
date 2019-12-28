@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row full-width">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6"></div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right" style="padding-left: 10px; text-align: right;padding-top: 2%;">
+            <button class="add-buton" (click)="addEmployee()"> Add Employee</button>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-9" style="margin: 10px; background-color: white; " *ngIf="!empList ||(empList && empList.length==0)">
+            <span class="header-custom"> There is no employee added yet. You can add an employee by clicking on Add employee button above..!  </span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-9" style="margin: 10px; background-color: white;" *ngIf="empList && empList.length>0">
+            <div class="row shadow" style="margin: 10px;" *ngFor=" let emp of empList">
+                <div class="row full-width">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                        <div style="width:115px;height: 115px;border-radius: 50%; display: table;
+                        margin: auto;background: linear-gradient(to bottom right, #2B8FC5, #00ccff);text-align: center;margin-left: auto;margin-right: auto">
+                            <img *ngIf="emp.profilePic" [src]="emp.profilePic" style="width:115px;height: 115px;border-radius: 50%;     background: linear-gradient(to bottom right, #2B8FC5, #00ccff);">
+                            <span *ngIf="!emp.profilePic">No profile picture</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row full-width" style="margin: 15px;">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-xl-8" style="height: 30px; padding-left: 20px;">
+                        <!-- <div></div> -->
+                        <span class="header-custom"> Name:  </span>
+                        <span class="usual-text-custom"> {{emp.firstName}}{{emp.lastName}}</span>
+
+                    </div>
+                    <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="font-size: 14px;height: 30px;padding-left: 20px;">
+                        <span class="header-custom"> Email:  </span>
+                        <span class="usual-text-custom"> {{emp.email}}</span>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
